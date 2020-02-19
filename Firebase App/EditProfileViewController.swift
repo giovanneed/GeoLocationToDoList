@@ -45,7 +45,7 @@ class EditProfileViewController : UIViewController {
          loading(show: true)
         
         if let image = self.profileImageView.image {
-            firebaseAPI.uploadImage(image: image) { (url, error) in
+            firebaseAPI.uploadImage(image: image) { (success, url, error) in
                 self.loading(show: false)
                 if let error = error {
                     self.showMessage(title: "Error", message: error.localizedDescription)

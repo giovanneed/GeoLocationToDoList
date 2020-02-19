@@ -34,6 +34,16 @@ extension UIViewController {
        
     }
     
+    
+    func showMessage(withError error:Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true) {
+                      
+        }
+    }
     func showMessage(title: String, message: String) {
            
            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -85,7 +95,73 @@ extension UIViewController {
            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
        
+}
+
+
+extension UIImageView {
     
+   func setRounded() {
+        contentMode = .scaleAspectFill
+        let radius = self.frame.width / 2
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
     
+}
+
+extension UIView {
     
+    func setBorderRounded(radius:CGFloat ) {
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+    
+    func setBorder(border:CGFloat ) {
+        self.layer.borderWidth = border
+        if traitCollection.userInterfaceStyle == .dark {
+            self.layer.borderColor = Colors().borderColorDark
+        } else {
+            self.layer.borderColor = Colors().borderColorLight
+        }
+        
+
+    }
+    
+}
+
+extension UILabel {
+    func strikeThrough() {
+        guard let string = self.text else { return }
+        let stAttributeString =  NSMutableAttributedString(string: string)
+        stAttributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0,stAttributeString.length))
+        self.attributedText = stAttributeString
+    }
+    
+    func normal() {
+        let font = UIFont.systemFont(ofSize: 25)
+
+           guard let string = self.text else { return }
+           let stAttributeString =  NSMutableAttributedString(string: string)
+           stAttributeString.addAttribute(
+            NSAttributedString.Key.font,
+            value: font,
+            range: NSMakeRange(0,stAttributeString.length))
+           self.attributedText = stAttributeString
+       }
+}
+
+
+extension String {
+    func normal() -> NSAttributedString {
+        let font = UIFont.systemFont(ofSize: 25)
+
+           let attributeString =  NSMutableAttributedString(string: self)
+           attributeString.addAttribute(NSAttributedString.Key.font, value: font, range: NSMakeRange(0,attributeString.length))
+           return attributeString
+       }
+    func strikeThrough() -> NSAttributedString {
+        let attributeString =  NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0,attributeString.length))
+        return attributeString
+    }
 }

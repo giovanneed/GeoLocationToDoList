@@ -22,6 +22,18 @@
 		F661B9C62386083600DBC588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F661B9C52386083600DBC588 /* Assets.xcassets */; };
 		F661B9C92386083600DBC588 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F661B9C72386083600DBC588 /* LaunchScreen.storyboard */; };
 		F661B9D123860A0400DBC588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F661B9D023860A0400DBC588 /* GoogleService-Info.plist */; };
+		F68B6712239611C20070BEC6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68B6711239611C20070BEC6 /* Colors.swift */; };
+		F6A0091B23A49B170054622F /* FireBaseAPIforBMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0091A23A49B170054622F /* FireBaseAPIforBMI.swift */; };
+		F6A0091D23A4AFF70054622F /* ExampleFirebaseAPIforBMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0091C23A4AFF70054622F /* ExampleFirebaseAPIforBMI.swift */; };
+		F6A0091F23A4B2F50054622F /* tableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A0091E23A4B2F50054622F /* tableTableViewController.swift */; };
+		F6D4C959238DF36D00A947B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C958238DF36D00A947B8 /* LoginViewController.swift */; };
+		F6D4C95B238DF57000A947B8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C95A238DF57000A947B8 /* RegisterViewController.swift */; };
+		F6D4C95D238E068600A947B8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C95C238E068600A947B8 /* HomeViewController.swift */; };
+		F6D4C95F238E0CBF00A947B8 /* NewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C95E238E0CBF00A947B8 /* NewCollectionViewController.swift */; };
+		F6D4C961238E13AE00A947B8 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C960238E13AE00A947B8 /* Collection.swift */; };
+		F6D4C963238F2DA900A947B8 /* TasksViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C962238F2DA900A947B8 /* TasksViewContoller.swift */; };
+		F6D4C965238F329B00A947B8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C964238F329B00A947B8 /* Task.swift */; };
+		F6D4C967238F50D400A947B8 /* FavouriteList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D4C966238F50D400A947B8 /* FavouriteList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +61,18 @@
 		F661B9C82386083600DBC588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F661B9CA2386083600DBC588 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F661B9D023860A0400DBC588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F68B6711239611C20070BEC6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F6A0091A23A49B170054622F /* FireBaseAPIforBMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAPIforBMI.swift; sourceTree = "<group>"; };
+		F6A0091C23A4AFF70054622F /* ExampleFirebaseAPIforBMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleFirebaseAPIforBMI.swift; sourceTree = "<group>"; };
+		F6A0091E23A4B2F50054622F /* tableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableTableViewController.swift; sourceTree = "<group>"; };
+		F6D4C958238DF36D00A947B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F6D4C95A238DF57000A947B8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F6D4C95C238E068600A947B8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F6D4C95E238E0CBF00A947B8 /* NewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionViewController.swift; sourceTree = "<group>"; };
+		F6D4C960238E13AE00A947B8 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		F6D4C962238F2DA900A947B8 /* TasksViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewContoller.swift; sourceTree = "<group>"; };
+		F6D4C964238F329B00A947B8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F6D4C966238F50D400A947B8 /* FavouriteList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +130,18 @@
 		F661B9BB2386083200DBC588 /* Firebase App */ = {
 			isa = PBXGroup;
 			children = (
+				F6D4C957238DF35100A947B8 /* To Do List */,
 				F661B9BC2386083200DBC588 /* AppDelegate.swift */,
 				F661B9BE2386083200DBC588 /* SceneDelegate.swift */,
 				F661B9C02386083200DBC588 /* ViewController.swift */,
 				F661B9C22386083200DBC588 /* Main.storyboard */,
+				F6A0091E23A4B2F50054622F /* tableTableViewController.swift */,
+				F6D4C966238F50D400A947B8 /* FavouriteList.swift */,
 				F62BA5AA238619CB009348EC /* MainViewController.swift */,
 				F6163C5823875E4D004B00CF /* EditProfileViewController.swift */,
 				F6163C5E238763F8004B00CF /* FireBaseAPI.swift */,
+				F6A0091A23A49B170054622F /* FireBaseAPIforBMI.swift */,
+				F6A0091C23A4AFF70054622F /* ExampleFirebaseAPIforBMI.swift */,
 				F6163C5C23876338004B00CF /* Extensions.swift */,
 				F6163C60238782ED004B00CF /* PesonTableViewCell.swift */,
 				F6163C5623875CCC004B00CF /* Person.swift */,
@@ -123,6 +152,21 @@
 				F661B9D023860A0400DBC588 /* GoogleService-Info.plist */,
 			);
 			path = "Firebase App";
+			sourceTree = "<group>";
+		};
+		F6D4C957238DF35100A947B8 /* To Do List */ = {
+			isa = PBXGroup;
+			children = (
+				F6D4C958238DF36D00A947B8 /* LoginViewController.swift */,
+				F6D4C95A238DF57000A947B8 /* RegisterViewController.swift */,
+				F6D4C95C238E068600A947B8 /* HomeViewController.swift */,
+				F6D4C95E238E0CBF00A947B8 /* NewCollectionViewController.swift */,
+				F6D4C962238F2DA900A947B8 /* TasksViewContoller.swift */,
+				F6D4C960238E13AE00A947B8 /* Collection.swift */,
+				F6D4C964238F329B00A947B8 /* Task.swift */,
+				F68B6711239611C20070BEC6 /* Colors.swift */,
+			);
+			path = "To Do List";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,16 +285,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A0091D23A4AFF70054622F /* ExampleFirebaseAPIforBMI.swift in Sources */,
 				F6163C5723875CCC004B00CF /* Person.swift in Sources */,
+				F6D4C95F238E0CBF00A947B8 /* NewCollectionViewController.swift in Sources */,
 				F6163C5D23876338004B00CF /* Extensions.swift in Sources */,
 				F661B9C12386083200DBC588 /* ViewController.swift in Sources */,
+				F6A0091B23A49B170054622F /* FireBaseAPIforBMI.swift in Sources */,
+				F6D4C95B238DF57000A947B8 /* RegisterViewController.swift in Sources */,
 				F661B9BD2386083200DBC588 /* AppDelegate.swift in Sources */,
+				F6D4C963238F2DA900A947B8 /* TasksViewContoller.swift in Sources */,
+				F6D4C967238F50D400A947B8 /* FavouriteList.swift in Sources */,
+				F6D4C961238E13AE00A947B8 /* Collection.swift in Sources */,
 				F661B9BF2386083200DBC588 /* SceneDelegate.swift in Sources */,
 				F6163C5B2387601A004B00CF /* User.swift in Sources */,
 				F62BA5AB238619CB009348EC /* MainViewController.swift in Sources */,
+				F68B6712239611C20070BEC6 /* Colors.swift in Sources */,
 				F6163C61238782ED004B00CF /* PesonTableViewCell.swift in Sources */,
 				F6163C5923875E4D004B00CF /* EditProfileViewController.swift in Sources */,
 				F6163C5F238763F8004B00CF /* FireBaseAPI.swift in Sources */,
+				F6D4C95D238E068600A947B8 /* HomeViewController.swift in Sources */,
+				F6D4C965238F329B00A947B8 /* Task.swift in Sources */,
+				F6A0091F23A4B2F50054622F /* tableTableViewController.swift in Sources */,
+				F6D4C959238DF36D00A947B8 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BULHRS882;
 				INFOPLIST_FILE = "Firebase App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -414,6 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BULHRS882;
 				INFOPLIST_FILE = "Firebase App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -11,13 +11,215 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import UIKit
 
 class FirebaseAPI {
+    
+    var databaseReference = Database.database().reference(withPath: "Collections")
+
     
     init(){
         
     }
     
+    
+    
+    func createNewUser(withEmail email:String, password:String, image: UIImage, name: String, callback: @escaping(_ success: Bool,_ progress: Int?, _ error: Error?) -> Void) {
+        
+        var profileImageURL : URL?
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if let error = error{
+                callback(false,nil,error)
+                return
+            }
+            
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+                if let error = error{
+                    callback(false,nil,error)
+                    return
+                }
+                
+                
+                self.uploadImage(image: image) { (success, url, error) in
+                    if let error = error{
+                        callback(false,nil,error)
+                        return
+                    }
+                    
+                    if success, let url = url {
+                        profileImageURL = url
+                    }
+                    
+                    if let request = Auth.auth().currentUser?.createProfileChangeRequest(){
+                         
+                        if let url = profileImageURL{
+                            request.photoURL = url
+                        }
+                        
+                        request.displayName = name
+                        
+
+                        request.commitChanges(completion: { (error) in
+                            if let error = error{
+                                callback(false,nil,error)
+                                return
+                            }
+                            
+                            callback(true,nil,nil)
+                                         
+                        })
+                    }
+                    
+                }
+            }
+            
+            //callback?(nil)
+        }
+        
+    }
+    
+    func login(withEmail email:String, password: String, callback: @escaping(_ success: Bool,_ error: Error?)->Void) {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error{
+                callback(false,error)
+                return
+            }
+            
+            callback(true,nil)
+
+        }
+        
+    }
+    
+    func getUserName(callback: @escaping(_ success: Bool,_ name: String?, _ error: Error?)->Void) {
+        
+        
+        if let name = Auth.auth().currentUser?.displayName  {
+            callback(true,name,nil)
+            return
+        }
+        
+    }
+    
+    func getUserProfileImageURL(callback: @escaping(_ success: Bool,_ imageURL: URL?, _ error: Error?)->Void) {
+
+        if let imageURL = Auth.auth().currentUser?.photoURL {
+            callback(true,imageURL,nil)
+        }
+       
+        
+    }
+    
+    
+    func createNewCollection(withCollection jsonObject:[String: Any], title: String , callback: @escaping(_ success: Bool,_ error: Error?)->Void ) {
+        
+        let objectRef = databaseReference.child(title)
+        
+        objectRef.setValue(jsonObject)
+        
+        callback(true,nil)
+
+        
+    }
+    
+    
+    func createNewTask(withTask jsonObject:[String: Any], collectionTitle: String , taskTitle: String, callback: @escaping(_ success: Bool,_ error: Error?)->Void ) {
+           
+        let objectRef = databaseReference.child(collectionTitle).child("tasks").child(taskTitle)
+           
+           objectRef.setValue(jsonObject)
+           
+           callback(true,nil)
+        return
+
+           
+    }
+    
+    func setTaskDone(withTask jsonObject:[String: Any], collectionTitle: String , taskTitle: String, callback: @escaping(_ success: Bool,_ error: Error?)->Void ) {
+              
+           let objectRef = databaseReference.child(collectionTitle).child("tasks").child(taskTitle)
+              
+              objectRef.setValue(jsonObject)
+              
+              callback(true,nil)
+
+              
+       }
+    
+    
+    func deleteCollection(collectionTitle: String,callback: @escaping(_ success: Bool,_ error: Error?)->Void){
+           
+        let objectRef = databaseReference.child(collectionTitle)
+            
+        objectRef.removeValue() {error, _ in
+            
+            if error == nil  {
+                callback(true,nil)
+                return
+            }
+            
+            callback(false, error)
+            return
+            
+        }
+                       
+               
+    }
+    
+  
+    func deleteTaskFromCollection(collectionTitle: String, taskTitle: String, callback: @escaping(_ success: Bool,_ error: Error?)->Void){
+           
+        let objectRef = databaseReference.child(collectionTitle).child("tasks").child(taskTitle)
+            
+        objectRef.removeValue() {error, _ in
+            
+            if error == nil  {
+                callback(true,nil)
+                return
+            }
+            
+            callback(false, error)
+            return
+            
+        }
+                       
+               
+    }
+    
+    func searchCollection(by title: String, callback: @escaping(_ success: Bool,_ collection : [String:AnyObject]?, _ error: Error?)->Void) {
+        
+        databaseReference.observe(DataEventType.value) { (snapshot) in
+            if let collections = snapshot.value as? [String : AnyObject] {
+                var founded : [String:AnyObject]?
+                for collection in collections {
+                    if collection.key == title, let collectionJSON = collection.value as?  [String:AnyObject] {
+                    
+                        founded = collectionJSON
+                        
+                    }
+                }
+                
+                callback(true, founded, nil)
+
+                               
+            }
+        }
+    
+        
+    }
+    
+    func getAllCollections(callback: @escaping(_ success: Bool,_ collections: [String: Any]?,_ error: Error?)->Void ){
+        
+        databaseReference.observe(DataEventType.value) { (snapshot) in
+            if let collections = snapshot.value as? [String : AnyObject] {
+                        
+               callback(true, collections, nil)
+            }
+        }
+        
+    }
     
     func logout( callback: @escaping(_ success: Bool)-> Void) {
         
@@ -84,7 +286,7 @@ class FirebaseAPI {
               }
     }
     
-    func uploadImage(image: UIImage,callback: @escaping(URL?,Error?) -> Void){
+    func uploadImage(image: UIImage,callback: @escaping(_ success: Bool,_ URL : URL?,_ error: Error?) -> Void){
         
         guard let id =  Auth.auth().currentUser?.uid else { return }
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {return}
@@ -97,10 +299,10 @@ class FirebaseAPI {
                
                 profileImgReference.downloadURL { url, error in
                     if let error = error {
-                        callback(nil,error)
+                        callback(false, nil, error)
                     } else {
                         if let url = url {
-                            callback(url, nil)
+                            callback(true, url, nil)
                         }
                     }
                 }

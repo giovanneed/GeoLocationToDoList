@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Toronto Downtown.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:centennial.gpx">
+   </FileRef>
+   <FileRef
       location = "group:Firebase App.xcodeproj">
    </FileRef>
    <FileRef
